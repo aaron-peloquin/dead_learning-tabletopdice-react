@@ -5,30 +5,28 @@ import {
   Toolbar,
   Typography,
   Grid,
+  Button
 } from '@material-ui/core/'
-import { withStyles } from '@material-ui/core/styles'
-const style = theme => {
-  return {
-    pageHeading: {
-      color: "#FFF",
-    }
-  }
-}
+import Settings from './../modals/Settings'
 
-const Header = (props) => {
-  const { classes } = props
+
+function Header(PropTypes) {
   return <AppBar position="static" color="primary">
       <Toolbar>
-        <Grid container>
-          <Grid item xs={8}>
-            <Typography variant="headline" align="left" className={classes.pageHeading}>Tabletop Dice</Typography>
+      <Grid container>
+          <Grid item sm>
+          <Typography variant="headline" color="textPrimary" align="center">Tabletop Dice</Typography>
           </Grid>
-          <Grid item xs={4} align="right">
-          <a href="https://goo.gl/forms/HIDWZP4VsafmbQTA2" target="_blank" rel="noopener noreferrer"><Button variant="contained">Feedback</Button></a>
+          <Grid item sm>
+            <Button color="secondary" onClick={Settings.handleOpen} variant="contained">Dice Sets</Button>
           </Grid>
-        </Grid>
+          <Grid item sm>
+            <Button color="secondary" variant="contained">Settings</Button>
+          </Grid>
+      </Grid>
       </Toolbar>
+      <Settings />
     </AppBar>
 }
 
-export default withStyles(style)(Header)
+export default Header
