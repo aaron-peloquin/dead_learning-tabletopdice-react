@@ -47,19 +47,21 @@ class DiceSetsModal extends React.Component {
 
     return (
       <div>
-        <Button color="secondary" onClick={this.handleOpen} variant="contained">Sets</Button>
+        <Button color="secondary" onClick={this.handleOpen} variant="contained">
+          <Typography variant="body2" id="modal-title">Sets</Typography>
+        </Button>
         <Modal
           aria-labelledby="dice-sets-modal-title"
           aria-describedby="dice-sets-modal-description"
           open={this.state.open}
           onClose={this.handleClose}
         >
-            <div style={getModalStyle()} className={classes.paper}>
-              <Typography color="textSecondary" variant="title" id="modal-title">Dice Sets</Typography>
-              <Typography color="textSecondary" variant="subheading" id="dice-sets-modal-description">
-                Configure what user interface elements are shown.
-              </Typography>
-            </div>
+          <div style={getModalStyle()} className={classes.paper}>
+            <Typography color="textSecondary" variant="title" id="modal-title">Dice Sets</Typography>
+            <Typography color="textSecondary" variant="subheading" id="dice-sets-modal-description">
+              Configure what user interface elements are shown.
+            </Typography>
+          </div>
         </Modal>
       </div>
     );

@@ -47,7 +47,9 @@ class SettingsModal extends React.Component {
 
     return (
       <div>
-        <Button color="secondary" onClick={this.handleOpen} variant="contained">Settings</Button>
+        <Button color="secondary" onClick={this.handleOpen} variant="contained">
+          <Typography variant="body2" id="modal-title">Settings</Typography>
+        </Button>
         <Modal
           aria-labelledby="settings-modal-title"
           aria-describedby="settings-modal-description"
