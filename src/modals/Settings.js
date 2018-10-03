@@ -47,7 +47,7 @@ class SettingsModal extends React.Component {
 
     return (
       <div>
-        <Button class="open-modal" color="secondary" onClick={this.handleOpen} variant="contained">
+        <Button color="secondary" onClick={this.handleOpen} variant="contained">
           <Typography variant="body2" id="modal-title">Settings</Typography>
         </Button>
         <Modal
