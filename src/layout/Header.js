@@ -18,10 +18,10 @@ function Header() {
         <Grid item sm>
         <Typography variant="headline" color="textPrimary" align="left">Tabletop Dice</Typography>
         </Grid>
-        <Grid item xs="3" align="right">
+        <Grid item xs="auto" align="right">
           <Sets />
         </Grid>
-        <Grid item xs="3" align="left">
+        <Grid item xs="auto" align="left">
           <Settings />
         </Grid>
       </Grid>
