@@ -23,10 +23,16 @@ let startingData = {
   "sets": []
 }
 
+const loadedSettings = loadFromStorage('settings')
+if(loadedSettings) {
+  startingData.settings = loadedSettings
+}
+
 const loadedSets = loadFromStorage('sets')
 if(loadedSets) {
   startingData.sets = loadedSets
 }
+
 
 const reduxDevTools = window.devToolsExtension && window.devToolsExtension()
 const store = createStore(reducers, startingData, reduxDevTools)
