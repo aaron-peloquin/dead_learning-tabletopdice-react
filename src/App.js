@@ -5,11 +5,11 @@ import { Header, Footer } from './layout/'
 export default class extends Component {
   render() {
     return <Fragment>
-      <Header />
-      <section>
-        <p>Body</p>
-      </section>
-      <Footer />
+        <Header />
+          <section>
+            <p>Body</p>
+          </section>
+          <Footer />
     </Fragment>
   }
 }
