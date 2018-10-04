@@ -6,6 +6,7 @@ import {
   Modal,
   Typography
 } from '@material-ui/core/';
+import store from '../store'
 
 function getModalStyle() {
   const top = 50
@@ -36,6 +37,12 @@ class DiceSetsModal extends React.Component {
 
   handleOpen = () => {
     this.setState({ open: true });
+
+    store.dispatch({
+      "type": "addSet",
+      "payload": {name:"Test","primary":"1d20+4","secondary":"2d6+2","note":"slashing"}
+    })
+
   };
 
   handleClose = () => {

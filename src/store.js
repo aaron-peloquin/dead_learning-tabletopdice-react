@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from 'redux'
 import settingsReducer from './storeReducers/settings'
 import setsReducer from './storeReducers/sets'
+import { loadFromStorage } from './storeReducers/localStorage'
 
 const reducers = combineReducers({
   "settings": settingsReducer,
@@ -22,6 +23,10 @@ let startingData = {
   "sets": []
 }
 
+const loadedSets = loadFromStorage('sets')
+if(loadedSets) {
+  startingData.sets = loadedSets
+}
 
 const reduxDevTools = window.devToolsExtension && window.devToolsExtension()
 const store = createStore(reducers, startingData, reduxDevTools)
