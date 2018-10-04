@@ -1,7 +1,6 @@
 export default function(state='', { type, payload }) {
-  if(type === "addSet") {
-    state.push(payload)
-    
+  if(type === "updateSettings") {
+    return payload
   }
   return state  
 }

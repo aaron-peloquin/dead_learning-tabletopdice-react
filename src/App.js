@@ -6,7 +6,10 @@ export default class extends Component {
   render() {
     return <Fragment>
         <Header />
-        <Body />
+          <section>
+            <p>Body</p>
+          </section>
+          <Footer />
     </Fragment>
   }
 }
