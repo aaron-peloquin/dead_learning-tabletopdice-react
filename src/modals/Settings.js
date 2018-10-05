@@ -7,6 +7,10 @@ import {
   Typography,
 } from '@material-ui/core/';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { connect } from 'react-redux'
+import {
+  toggleModal
+} from './../storeActions/toggleModal'
 
 function getModalStyle() {
   const top = 50
@@ -19,7 +23,7 @@ function getModalStyle() {
   };
 }
 
-const styles = theme => ({
+const modalStyles = theme => ({
   paper: {
     position: 'absolute',
     width: theme.spacing.unit * 100,
@@ -31,31 +35,27 @@ const styles = theme => ({
 });
 
 class SettingsModal extends React.Component {
-  state = {
-    open: false,
-  };
-
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
+  constructor(props) {
+    super(props)
+    this.toggleModal = this.toggleModal.bind(this)
+  }
+  toggleModal = () => {
+    this.props.toggleModal('settings')
+  }
 
   render() {
     const { classes } = this.props;
 
     return (
       <div>
-        <Button color="secondary" onClick={this.handleOpen} variant="extendedFab">
+        <Button color="secondary" onClick={this.toggleModal} variant="extendedFab">
           <SettingsIcon />
         </Button>
         <Modal
           aria-labelledby="settings-modal-title"
           aria-describedby="settings-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
+          open={this.props.open}
+          onClose={this.toggleModal}
         >
             <div style={getModalStyle()} className={classes.paper}>
               <Typography color="textSecondary" variant="title" id="modal-title">Settings</Typography>
@@ -74,6 +74,14 @@ SettingsModal.propTypes = {
 };
 
 // We need an intermediary variable for handling the recursive nesting.
-const SettingsModalWrapped = withStyles(styles)(SettingsModal);
+const SettingsModalWrapped = withStyles(modalStyles)(SettingsModal);
 
-export default SettingsModalWrapped;
+const mapStateToProps = state => ({
+  open: state.modals.settings
+})
+
+const mapActionsToProps = {
+  toggleModal: toggleModal
+}
+
+export default connect(mapStateToProps,mapActionsToProps)(SettingsModalWrapped);
