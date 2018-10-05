@@ -4,8 +4,6 @@ import {
   settingsReducer,
   setsReducer
 } from './storeReducers/'
-import { loadFromStorage } from './storeReducers/helper-localStorage'
-
 
 const reducers = combineReducers({
   "modals": modalsReducer,
