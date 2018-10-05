@@ -1,41 +1,19 @@
 import { combineReducers, createStore } from 'redux'
-import settingsReducer from './storeReducers/settings'
-import setsReducer from './storeReducers/sets'
-import { loadFromStorage } from './storeReducers/localStorage'
+import {
+  modalsReducer,
+  settingsReducer,
+  setsReducer
+} from './storeReducers/'
+import { loadFromStorage } from './storeReducers/helper-localStorage'
+
 
 const reducers = combineReducers({
+  "modals": modalsReducer,
   "settings": settingsReducer,
   "sets": setsReducer
 })
 
-let startingData = {
-  "settings": {
-    "showStandardArray": true,
-    "showStandardDie": {
-      "4": true,
-      "6": true,
-      "8": true,
-      "10": true,
-      "12": true,
-      "20": true,
-    },
-  },
-  "sets": []
-}
-
-const loadedSettings = loadFromStorage('settings')
-if(loadedSettings) {
-  startingData.settings = loadedSettings
-}
-
-const loadedSets = loadFromStorage('sets')
-if(loadedSets) {
-  startingData.sets = loadedSets
-}
-
-
 const reduxDevTools = window.devToolsExtension && window.devToolsExtension()
-const store = createStore(reducers, startingData, reduxDevTools)
-
+const store = createStore(reducers, {}, reduxDevTools)
 
 export default store
