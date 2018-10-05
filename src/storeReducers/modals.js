@@ -1,5 +1,5 @@
 import {
-  TOGGLE_MODAL
+  toggle_modal
 } from './../storeActions/toggleModal'
 
 /**
@@ -17,7 +17,7 @@ const defaultState = {
 
 export default function(state=defaultState, { type, payload }) {
   switch (type) {
-    case TOGGLE_MODAL:
+    case toggle_modal:
       state[payload] = !state[payload]
       break;
   }
