@@ -4,8 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import {
   Button,
   Modal,
-  Typography
+  Typography,
 } from '@material-ui/core/';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 function getModalStyle() {
   const top = 50
@@ -25,7 +26,7 @@ const styles = theme => ({
     maxWidth: '75%',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing.unit * 3,
   },
 });
 
@@ -47,8 +48,8 @@ class SettingsModal extends React.Component {
 
     return (
       <div>
-        <Button color="secondary" onClick={this.handleOpen} variant="contained">
-          <Typography variant="body2" id="modal-title">Settings</Typography>
+        <Button color="secondary" onClick={this.handleOpen} variant="extendedFab">
+          <SettingsIcon />
         </Button>
         <Modal
           aria-labelledby="settings-modal-title"
