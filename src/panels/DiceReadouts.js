@@ -15,18 +15,19 @@ console.log("state:  ", typeof state, state);
     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
       <Grid container>
         <Grid item xs={5}>
-          <Typography>Rolls</Typography>
+          <Typography variant="title">Rolls</Typography>
         </Grid>
         <Grid item xs={7}>
-          <Typography>Display Recent rolls</Typography>
+          <Typography><em>(Display Recent rolls)</em></Typography>
         </Grid>
       </Grid>
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>
       <Grid container spacing={24}>
         <Grid item xs={12}><Typography>Full History</Typography></Grid>
-        <Grid item xs={6}><Typography>Average</Typography></Grid>
-        <Grid item xs={6}><Typography>High/Low</Typography></Grid>
+        <Grid item xs={4}><Typography>Total</Typography></Grid>
+        <Grid item xs={4}><Typography>Average</Typography></Grid>
+        <Grid item xs={4}><Typography>High/Low</Typography></Grid>
       </Grid>
     </ExpansionPanelDetails>
   </ExpansionPanel>
