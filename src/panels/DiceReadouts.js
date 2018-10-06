@@ -15,7 +15,7 @@ console.log("state:  ", typeof state, state);
     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
       <Grid container>
         <Grid item xs={5}>
-          <Typography>Roll History</Typography>
+          <Typography>Rolls</Typography>
         </Grid>
         <Grid item xs={7}>
           <Typography>Display Recent rolls</Typography>
