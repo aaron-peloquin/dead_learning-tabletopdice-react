@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Button,
@@ -11,34 +10,19 @@ import { connect } from 'react-redux'
 import {
   toggleModal
 } from './../storeActions/toggleModal'
-
-function getModalStyle() {
-  const top = 50
-  const left = 50
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const modalStyles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 100,
-    maxWidth: '75%',
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 3,
-  },
-});
+import modalStyles from './helper-modalStyles'
 
 class SettingsModal extends React.Component {
+  /**
+   * Assign properties to this element, and bind toggleModal() to this class.
+   * @param {obj} props an object of all properties to assign into this element
+   */
   constructor(props) {
     super(props)
     this.toggleModal = this.toggleModal.bind(this)
   }
+
+  /** Toggle opening & closing the settings modal */
   toggleModal = () => {
     this.props.toggleModal('settings')
   }
@@ -57,7 +41,7 @@ class SettingsModal extends React.Component {
           open={this.props.open}
           onClose={this.toggleModal}
         >
-            <div style={getModalStyle()} className={classes.paper}>
+            <div className={classes.paper}>
               <Typography color="textSecondary" variant="title" id="modal-title">Settings</Typography>
               <Typography color="textSecondary" variant="subheading" id="settings-modal-description">
                 Configure what user interface elements are shown.
@@ -69,19 +53,13 @@ class SettingsModal extends React.Component {
   }
 }
 
-SettingsModal.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-// We need an intermediary variable for handling the recursive nesting.
-const SettingsModalWrapped = withStyles(modalStyles)(SettingsModal);
+/** Add modalStyles to the SettingsModal */
+let SettingsModalWrapped = withStyles(modalStyles)(SettingsModal);
+/** Setup redux connect() variables */
+const mapStateToProps = state => ({open: state.modals.settings})
+const mapActionsToProps = {toggleModal: toggleModal}
+/** Connect element to redux */
+SettingsModalWrapped = connect(mapStateToProps,mapActionsToProps)(SettingsModalWrapped);
 
-const mapStateToProps = state => ({
-  open: state.modals.settings
-})
-
-const mapActionsToProps = {
-  toggleModal: toggleModal
-}
-
-export default connect(mapStateToProps,mapActionsToProps)(SettingsModalWrapped);
+export default SettingsModalWrapped
