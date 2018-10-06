@@ -1,9 +1,7 @@
-import modalsReducer from './modals'
+import panelsReducer from './panels'
 import setsReducer from './sets'
-import settingsReducer from './settings'
 
 export {
-  modalsReducer,
+  panelsReducer,
   setsReducer,
-  settingsReducer
 }
