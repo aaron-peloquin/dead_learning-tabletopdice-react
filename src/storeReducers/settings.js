@@ -2,17 +2,18 @@ import {
   saveToStorage,
   loadFromStorage,
 } from './helper-localStorage'
+import {
+  update_settings
+} from './../storeDispatchers/updateSettings'
 
 const defaultState = {
   "showStandardArray": true,
-  "showStandardDie": {
-    "4": true,
-    "6": true,
-    "8": true,
-    "10": true,
-    "12": true,
-    "20": true,
-  },
+  "showStandardDie4": true,
+  "showStandardDie6": true,
+  "showStandardDie8": true,
+  "showStandardDie10": true,
+  "showStandardDie12": true,
+  "showStandardDie20": true,
 }
 
 export default function(state=defaultState, { type, payload }) {
@@ -22,9 +23,9 @@ export default function(state=defaultState, { type, payload }) {
     state = settingsStorage
   }
 
-  if(type === "updateSettings") {
+  if(type === update_settings) {
     updateLocalStorage = true
-    state = payload
+    state[payload.key] = payload.value
   }
 
   if(updateLocalStorage){
