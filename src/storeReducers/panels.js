@@ -1,6 +1,6 @@
 import {
   toggle_modal
-} from './../storeActions/toggleModal'
+} from '../storeDispatchers/togglePanel'
 
 /**
  * Reducer for {}.modals

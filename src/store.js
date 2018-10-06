@@ -1,13 +1,11 @@
 import { combineReducers, createStore } from 'redux'
 import {
-  modalsReducer,
-  settingsReducer,
+  panelsReducer,
   setsReducer
 } from './storeReducers/'
 
 const reducers = combineReducers({
-  "modals": modalsReducer,
-  "settings": settingsReducer,
+  "modals": panelsReducer,
   "sets": setsReducer
 })
 
