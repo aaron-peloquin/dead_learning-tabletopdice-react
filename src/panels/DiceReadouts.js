@@ -13,7 +13,14 @@ console.log("props:  ", typeof props, props);
 console.log("state:  ", typeof state, state);
   return <ExpansionPanel>
     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-      Roll History
+      <Grid container>
+        <Grid item xs={5}>
+          <Typography>Roll History</Typography>
+        </Grid>
+        <Grid item xs={7}>
+          <Typography>Display Recent rolls</Typography>
+        </Grid>
+      </Grid>
     </ExpansionPanelSummary>
     <ExpansionPanelDetails>
       <Grid container spacing={24}>
