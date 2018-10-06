@@ -1,9 +1,8 @@
-import store from '../store'
+export const toggle_modal = 'modals:toggleModal'
 
-const toggleModal = (key) => {
-  store.dispatch({
-    type: "modals:toggleModal",
+export function toggleModal(key) {
+  return {
+    type: toggle_modal,
     payload: key
-  })
+  }
 }
-export default toggleModal

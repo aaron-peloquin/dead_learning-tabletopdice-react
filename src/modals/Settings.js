@@ -4,12 +4,14 @@ import {
   Button,
   Modal,
   Typography,
+  FormControlLabel,
+  Checkbox,
 } from '@material-ui/core/';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { connect } from 'react-redux'
-import {
-  toggleModal
-} from './../storeActions/toggleModal'
+import { toggleModal } from './../storeDispatchers/toggleModal'
+import { bindActionCreators } from 'redux'
+import { updateSettings } from './../storeDispatchers/updateSettings'
 import modalStyles from './helper-modalStyles'
 
 class SettingsModal extends React.Component {
@@ -20,8 +22,15 @@ class SettingsModal extends React.Component {
   constructor(props) {
     super(props)
     this.toggleModal = this.toggleModal.bind(this)
+    console.log("this.updateSettings", this.updateSettings)
+    this.updateSettings = ()=>{}
   }
 
+  updateSettings = (name, ev) => {
+    console.log("Called")
+//    this.props.updateSettings(name)
+  }
+  
   /** Toggle opening & closing the settings modal */
   toggleModal = () => {
     this.props.toggleModal('settings')
@@ -46,6 +55,18 @@ class SettingsModal extends React.Component {
               <Typography color="textSecondary" variant="subheading" id="settings-modal-description">
                 Configure what user interface elements are shown.
               </Typography>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={this.props.settings.showStandardArray}
+                    onChange={this.toggleModal("showStandardArray")}
+                    value="showStandardArray"
+                    color="primary"
+                  />
+                }
+                color="textSecondary"
+                label="Show Standard Array"
+              />
             </div>
         </Modal>
       </div>
@@ -54,12 +75,26 @@ class SettingsModal extends React.Component {
 }
 
 
-/** Add modalStyles to the SettingsModal */
-let SettingsModalWrapped = withStyles(modalStyles)(SettingsModal);
 /** Setup redux connect() variables */
-const mapStateToProps = state => ({open: state.modals.settings})
-const mapActionsToProps = {toggleModal: toggleModal}
-/** Connect element to redux */
-SettingsModalWrapped = connect(mapStateToProps,mapActionsToProps)(SettingsModalWrapped);
+const mapStateToProps = (state, props) => {
+  return {
+    open: state.modals.settings,
+    settings: state.settings,
+  }
+}
 
-export default SettingsModalWrapped
+const mapDispatchToProps = (dispatch, props) => {
+console.log("dispatch", dispatch)
+  return bindActionCreators({
+    toggleModal,
+    updateSettings,
+  }, dispatch)
+}
+
+/** Add modalStyles to the SettingsModal */
+SettingsModal = withStyles(modalStyles)(SettingsModal);
+
+/** Connect element to redux */
+SettingsModal = connect(mapStateToProps, mapDispatchToProps)(SettingsModal);
+
+export default SettingsModal
