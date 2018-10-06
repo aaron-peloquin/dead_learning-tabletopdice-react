@@ -17,6 +17,9 @@ const defaultState = {
 
 export default function(state=defaultState, { type, payload }) {
   switch (type) {
+    default:
+      /** Do nothing */
+      break;
     case toggle_modal:
       state[payload] = !state[payload]
       break;
