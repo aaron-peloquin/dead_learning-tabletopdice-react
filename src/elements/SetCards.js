@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import {
   Card,
+  CardActions,
+  CardContent,
   Grid,
   Paper,
   Typography,
@@ -21,11 +23,13 @@ let SetCards = (props) => {
     <Grid container justify="center" spacing={24}>
       {fakeData.map(dataObj => <Grid item xs={5}>
         <Card>
-          <Paper>
-            <Typography variant="headline">{dataObj.name}</Typography>
-            <Typography variant="subheading">{dataObj.note}</Typography>
-            <Button variant="contained" color="secondary">Roll</Button>
-          </Paper>
+        <CardContent>
+          <Typography variant="headline">{dataObj.name}</Typography>
+          <Typography variant="subheading">{dataObj.note}</Typography>
+        </CardContent>
+        <CardActions>
+          <Button variant="contained" color="secondary">Roll</Button>
+        </CardActions>
         </Card>
       </Grid>)}
     </Grid>
