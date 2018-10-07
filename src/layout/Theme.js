@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core"
 
 /** https://material.io/tools/color/#!/?view.left=1&view.right=0&primary.color=2E7D32&secondary.color=795548 */
 export default createMuiTheme({
