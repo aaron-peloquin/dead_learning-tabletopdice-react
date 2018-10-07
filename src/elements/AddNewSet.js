@@ -1,13 +1,20 @@
 import React from 'react'
 import {
-  Typography,
-  Grid,
+  Button,
+  // Grid,
+  // Modal,
+  // Typography,
 } from '@material-ui/core/'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import toggleModal from './../storeDispatchers/toggleModal'
+//import store from './../store'
 
-const AddNewSet = (props, state) => {
-console.log("props:  ", typeof props, props)
-console.log("state:  ", typeof state, state)
+const AddNewSet = (props) => {
+  console.log("AddNewSet props:  ", typeof props, props)
+  return <div>
+    <Button onClick={()=>{toggleModal("addSet")}}>
+      Add
+    </Button>
+  </div>
 }
 
 export default AddNewSet
