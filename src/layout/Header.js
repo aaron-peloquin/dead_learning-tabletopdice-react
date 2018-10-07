@@ -15,7 +15,7 @@ function Header() {
             <Typography variant="headline" color="textSecondary" align="left">Tabletop Dice</Typography>
           </Grid>
           <Grid item xs={7} align="right">
-          <a href="https://goo.gl/forms/HIDWZP4VsafmbQTA2" target="_blank"><Button variant="contained" color="textSecondary" >Feedback</Button></a>
+          <a href="https://goo.gl/forms/HIDWZP4VsafmbQTA2" target="_blank" rel="noopener noreferrer"><Button variant="contained" color="textSecondary" >Feedback</Button></a>
           </Grid>
         </Grid>
       </Toolbar>
