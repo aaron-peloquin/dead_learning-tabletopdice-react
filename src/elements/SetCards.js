@@ -16,8 +16,9 @@ const style = theme => {
       margin: "0 auto",
       maxWidth: "90%",
     },
-    cardButton: {
-      justify: "right"
+    cardActions: {
+      display: "grid",
+      justifyContent: "right",
     }
   }
 }
@@ -40,13 +41,11 @@ let SetCards = (props) => {
           <Typography variant="headline">{dataObj.name}</Typography>
           <Typography variant="subheading">{dataObj.note}</Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardActions}>
           <Button
-            className={classes.cardButton}
             variant="contained"
             color="secondary"
-            fullWidth
-          >Roll Set</Button>
+          >Roll</Button>
         </CardActions>
         </Card>
       </Grid>)}
