@@ -6,13 +6,18 @@ import {
   Paper,
   // Typography,
 } from '@material-ui/core/'
+import AddIcon from '@material-ui/icons/Add';
 import toggleModal from './../storeDispatchers/toggleModal'
 import {connect} from 'react-redux'
 
 const AddNewSet = (props) => {
   return <div>
-    <Button onClick={()=>{toggleModal("addSet")}} variant="extendedFab">
-      Add
+    <Button
+      aria-label="Create new dice set"
+      onClick={()=>{toggleModal("addSet")}}
+      variant="extendedFab"
+    >
+      <AddIcon />
     </Button>
     <Modal
       aria-labelledby="simple-modal-title"
