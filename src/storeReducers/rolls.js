@@ -6,9 +6,13 @@
  * @param {str} paypload The data to update this state with
  */
 
-const defaultState = {
-  addSet: false
-}
+const defaultState = [
+  {sides: 20, result: 14},
+  {sides: 6, result: 6},
+  {sides: 4, result: 4},
+  {sides: 4, result: 2},
+  {sides: 6, result: 4},
+]
 
 const modalReducer = (state=defaultState, { type, payload }) => {
   switch (type) {
