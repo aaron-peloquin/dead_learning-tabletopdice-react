@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react'
 import {
   Button,
-  // Grid,
   Modal,
   Paper,
-  Typography,
 } from '@material-ui/core/'
 import AddIcon from '@material-ui/icons/Add';
 import toggleModal from './../storeDispatchers/toggleModal'
+import addSet from './../storeDispatchers/addSet'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 
@@ -38,7 +37,7 @@ let AddNewSet = (props) => {
     <div className={classes.fabWrapper}>
       <Button
         aria-label="Create new dice set"
-        onClick={()=>{toggleModal("addSet")}}
+        onClick={()=>{addSet()}}
         variant="fab"
         color="primary"
       >
@@ -52,7 +51,7 @@ let AddNewSet = (props) => {
       onClose={()=>{toggleModal("addSet")}}
     >
       <Paper className={classes.modalContent}>
-        <Typography>Add new set</Typography>
+        Test
       </Paper>
     </Modal>
   </Fragment>
@@ -60,7 +59,7 @@ let AddNewSet = (props) => {
 
 const mapStateToProps = (state, props) => {
   return {
-    status: state.modals.addSet
+    status: false
   }
 }
 
