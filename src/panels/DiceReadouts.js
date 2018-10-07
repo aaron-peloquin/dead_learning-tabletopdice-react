@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
 import {
   ExpansionPanel,
   ExpansionPanelDetails,
@@ -8,6 +9,15 @@ import {
 } from '@material-ui/core/'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
+const recentRollResults = (rolls, limit=3) => {
+  const displayRolls = rolls.reverse().splice(0,limit)
+  return <Fragment>
+    {displayRolls.map((r)=>{
+      return <Fragment><strong>{r.result} rolled </strong> ({r.sides} sides) </Fragment>
+    })}
+  </Fragment>
+}
+
 const DiceReadouts = (props) => {
   return <ExpansionPanel>
     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -16,7 +26,7 @@ const DiceReadouts = (props) => {
           <Typography variant="title">Rolls</Typography>
         </Grid>
         <Grid item xs={7}>
-          <Typography><em>(Display Recent rolls)</em></Typography>
+          <Typography variant="subheading">{recentRollResults(props.rolls)}</Typography>
         </Grid>
       </Grid>
     </ExpansionPanelSummary>
@@ -31,4 +41,10 @@ const DiceReadouts = (props) => {
   </ExpansionPanel>
 }
 
-export default DiceReadouts
+const mapStateToProps = (state, props) => {
+  return {
+    rolls: state.rolls
+  }
+}
+
+export default connect(mapStateToProps)(DiceReadouts)
