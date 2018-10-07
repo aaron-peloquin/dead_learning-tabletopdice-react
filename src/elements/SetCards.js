@@ -35,7 +35,7 @@ let SetCards = (props) => {
   const { classes } = props;
   return <Fragment>
     <Grid container justify="center" className={classes.gridContainer} spacing={24}>
-      {fakeData.map(dataObj => <Grid item xs={12} sm={6} md={4} xl={3}>
+      {props.sets.map(dataObj => <Grid item xs={12} sm={6} md={4} xl={3}>
         <Card>
         <CardContent>
           <Typography variant="headline">{dataObj.name}</Typography>
