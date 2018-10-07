@@ -4,11 +4,23 @@ import {
   CardActions,
   CardContent,
   Grid,
-  Paper,
   Typography,
   Button,
 } from '@material-ui/core/'
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
+
+const style = theme => {
+  return {
+    gridContainer: {
+      margin: "0 auto",
+      maxWidth: "90%",
+    },
+    cardButton: {
+      justify: "right"
+    }
+  }
+}
 
 const fakeData = [
   {name: "Short Sword", primary: "1d20+5", secondary: "1d6+3", note: "A short sword"},
@@ -19,16 +31,22 @@ const fakeData = [
 ]
 
 let SetCards = (props) => {
+  const { classes } = props;
   return <Fragment>
-    <Grid container justify="center" spacing={24}>
-      {fakeData.map(dataObj => <Grid item xs={5}>
+    <Grid container justify="center" className={classes.gridContainer} spacing={24}>
+      {fakeData.map(dataObj => <Grid item xs={12} sm={6} md={4} xl={3}>
         <Card>
         <CardContent>
           <Typography variant="headline">{dataObj.name}</Typography>
           <Typography variant="subheading">{dataObj.note}</Typography>
         </CardContent>
         <CardActions>
-          <Button variant="contained" color="secondary">Roll</Button>
+          <Button
+            className={classes.cardButton}
+            variant="contained"
+            color="secondary"
+            fullWidth
+          >Roll Set</Button>
         </CardActions>
         </Card>
       </Grid>)}
@@ -38,8 +56,9 @@ let SetCards = (props) => {
 
 const mapStateToProps = (state, props) => {
   return {
-    status: state.sets
+    sets: state.sets
   }
 }
 
+SetCards = withStyles(style)(SetCards)
 export default connect(mapStateToProps)(SetCards)
