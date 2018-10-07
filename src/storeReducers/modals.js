@@ -7,7 +7,6 @@
  */
 
 const defaultState = {
-  settings: false,
   addSet: false
 }
 
