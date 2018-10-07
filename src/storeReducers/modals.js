@@ -13,6 +13,7 @@ const defaultState = {
 const modalReducer = (state=defaultState, { type, payload }) => {
   switch (type) {
     default:
+      /** Do nothing */
       break
     case "modals:toggleModal":
       state[payload] = !state[payload]
