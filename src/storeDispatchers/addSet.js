@@ -1,13 +1,17 @@
 import store from '../store'
-import toggleSetEditStatus from './toggleSetEditStatus'
 
-const addSet = () => {
+const toggleModal = (key) => {
   store.dispatch({
     type: "sets:addSet",
-    payload: true,
+    payload: {
+      name: "",
+      note: "",
+      primary: "",
+      secondary: "",
+    }
   })
   const id = store.getState().sets.length - 1
-  toggleSetEditStatus(id)
+  console.log("id:", id)
 }
 
-export default addSet
+export default toggleModal
