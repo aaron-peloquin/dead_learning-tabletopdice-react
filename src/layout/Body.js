@@ -7,6 +7,7 @@ import {
   StandardArrayOfDice
 } from './../panels'
 import AddNewSet from './../elements/AddNewSet'
+import SetCards from './../elements/SetCards'
 
 function Body() {
   return <Fragment>
@@ -14,6 +15,7 @@ function Body() {
       <Grid item xs={12}><DiceReadouts /></Grid>
       <Grid item xs={12}><StandardArrayOfDice /></Grid>
       <Grid item xs={12} align="right"><AddNewSet /></Grid>
+      <Grid item xs={12}><SetCards /></Grid>
     </Grid>
     
     
