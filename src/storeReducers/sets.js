@@ -21,11 +21,11 @@ export default function(state=[], { type, payload }) {
   switch (type) {
     default:
       /** Do nothing */
-      break;
+      break
     case "addSet":
       updateLocalStorage = true
       state.push(payload)
-      break;
+      break
   }
 
   /** Attempt to pass new state to localStorage as a JSON object */
