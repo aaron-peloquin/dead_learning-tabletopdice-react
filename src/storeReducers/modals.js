@@ -12,9 +12,11 @@ const defaultState = {
 
 const modalReducer = (state=defaultState, { type, payload }) => {
   switch (type) {
+    default:
+      break
     case "modals:toggleModal":
       state[payload] = !state[payload]
-      break;
+      break
   }
   return state  
 }
