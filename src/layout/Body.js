@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import {
   Grid,
-  Paper,
 } from '@material-ui/core/'
 import {
   DiceReadouts,
