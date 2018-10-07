@@ -1,36 +1,49 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {
   Button,
   // Grid,
   Modal,
   Paper,
-  // Typography,
+  Typography,
 } from '@material-ui/core/'
 import AddIcon from '@material-ui/icons/Add';
 import toggleModal from './../storeDispatchers/toggleModal'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles';
 
-const AddNewSet = (props) => {
-  return <div>
+const style = theme => {
+  return {
+    fab: {
+      right: theme.spacing.unit * 2,
+      top: theme.spacing.unit,
+    }
+  }
+}
+
+let AddNewSet = (props) => {
+  const { classes } = props;
+  return <Fragment>
     <Button
       aria-label="Create new dice set"
       onClick={()=>{toggleModal("addSet")}}
-      variant="extendedFab"
+      variant="fab"
+      className={classes.fab}
+      color="secondary"
     >
       <AddIcon />
     </Button>
     <Modal
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
+      aria-labelledby="Create new dice set"
+      aria-describedby="Use this form to create a new dice set card"
       open={props.status}
       onClose={()=>{toggleModal("addSet")}}
     >
       <Paper>
-        Hello, World!
+        <Typography>Hello, World!</Typography>
       </Paper>
     </Modal>
 
-  </div>
+  </Fragment>
 }
 
 const mapStateToProps = (state, props) => {
@@ -39,4 +52,5 @@ const mapStateToProps = (state, props) => {
   }
 }
 
+AddNewSet = withStyles(style)(AddNewSet)
 export default connect(mapStateToProps)(AddNewSet)
