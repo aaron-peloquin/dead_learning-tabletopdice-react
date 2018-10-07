@@ -42,7 +42,6 @@ let AddNewSet = (props) => {
         <Typography>Hello, World!</Typography>
       </Paper>
     </Modal>
-
   </Fragment>
 }
 
