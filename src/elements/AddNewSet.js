@@ -13,9 +13,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 const style = theme => {
   return {
-    fab: {
+    fabWrapper: {
+      position: "absolute",
       right: theme.spacing.unit * 2,
-      top: theme.spacing.unit,
+      bottom: theme.spacing.unit * 2,
     }
   }
 }
@@ -23,15 +24,16 @@ const style = theme => {
 let AddNewSet = (props) => {
   const { classes } = props;
   return <Fragment>
-    <Button
-      aria-label="Create new dice set"
-      onClick={()=>{toggleModal("addSet")}}
-      variant="fab"
-      className={classes.fab}
-      color="primary"
-    >
-      <AddIcon />
-    </Button>
+    <div className={classes.fabWrapper}>
+      <Button
+        aria-label="Create new dice set"
+        onClick={()=>{toggleModal("addSet")}}
+        variant="fab"
+        color="primary"
+      >
+        <AddIcon />
+      </Button>
+    </div>
     <Modal
       aria-labelledby="Create new dice set"
       aria-describedby="Use this form to create a new dice set card"
