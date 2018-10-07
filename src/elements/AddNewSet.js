@@ -28,7 +28,7 @@ let AddNewSet = (props) => {
       onClick={()=>{toggleModal("addSet")}}
       variant="fab"
       className={classes.fab}
-      color="secondary"
+      color="primary"
     >
       <AddIcon />
     </Button>
