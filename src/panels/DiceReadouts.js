@@ -8,9 +8,7 @@ import {
 } from '@material-ui/core/'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-const DiceReadouts = (props, state) => {
-console.log("props:  ", typeof props, props)
-console.log("state:  ", typeof state, state)
+const DiceReadouts = (props) => {
   return <ExpansionPanel>
     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
       <Grid container>
