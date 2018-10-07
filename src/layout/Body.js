@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import {
-  Grid
+  Grid,
+  Paper,
 } from '@material-ui/core/'
 import {
   DiceReadouts,
@@ -10,16 +11,14 @@ import AddNewSet from './../elements/AddNewSet'
 import SetCards from './../elements/SetCards'
 
 function Body() {
-  return <Fragment>
+  return <Paper>
     <Grid container spacing={0}>
       <Grid item xs={12}><DiceReadouts /></Grid>
       <Grid item xs={12}><StandardArrayOfDice /></Grid>
       <Grid item xs={12} align="right"><AddNewSet /></Grid>
       <Grid item xs={12}><SetCards /></Grid>
     </Grid>
-    
-    
-  </Fragment>
+  </Paper>
 }
 
 export default Body
