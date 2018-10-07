@@ -1,9 +1,9 @@
 import setsReducer from './sets'
-import modalsReducer from './modals'
+import togglesReducer from './toggles'
 import rollsReducer from './rolls'
 
 export {
   setsReducer,
-  modalsReducer,
+  togglesReducer,
   rollsReducer
 }
