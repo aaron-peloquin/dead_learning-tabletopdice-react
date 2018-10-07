@@ -13,7 +13,7 @@ function Body() {
     <Grid container spacing={0}>
       <Grid item xs={12}><DiceReadouts /></Grid>
       <Grid item xs={12}><StandardArrayOfDice /></Grid>
-      <Grid item xs={12}><AddNewSet /></Grid>
+      <Grid item xs={12} align="right"><AddNewSet /></Grid>
     </Grid>
     
     
