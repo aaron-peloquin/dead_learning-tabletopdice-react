@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './styles.css'
-import { Header, Body, Footer } from './layout/'
+import { Header, Body } from './layout/'
 
 export default class extends Component {
   render() {
