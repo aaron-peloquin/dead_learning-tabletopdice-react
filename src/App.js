@@ -7,7 +7,6 @@ export default class extends Component {
     return <Fragment>
         <Header />
         <Body />
-        <Footer />
     </Fragment>
   }
 }
