@@ -4,12 +4,12 @@ import {
 } from 'redux'
 import {
   setsReducer,
-  modalsReducer,
+  togglesReducer,
   rollsReducer,
 } from './storeReducers/'
 
 const reducers = combineReducers({
-  "modals": modalsReducer,
+  "toggles": togglesReducer,
   "sets": setsReducer,
   "rolls": rollsReducer,
 })
