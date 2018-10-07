@@ -2,19 +2,36 @@ import React from 'react'
 import {
   Button,
   // Grid,
-  // Modal,
+  Modal,
+  Paper,
   // Typography,
 } from '@material-ui/core/'
 import toggleModal from './../storeDispatchers/toggleModal'
-//import store from './../store'
+import {connect} from 'react-redux'
 
 const AddNewSet = (props) => {
-  console.log("AddNewSet props:  ", typeof props, props)
   return <div>
-    <Button onClick={()=>{toggleModal("addSet")}}>
+    <Button onClick={()=>{toggleModal("addSet")}} variant="extendedFab">
       Add
     </Button>
+    <Modal
+      aria-labelledby="simple-modal-title"
+      aria-describedby="simple-modal-description"
+      open={props.status}
+      onClose={()=>{toggleModal("addSet")}}
+    >
+      <Paper>
+        Hello, World!
+      </Paper>
+    </Modal>
+
   </div>
 }
 
-export default AddNewSet
+const mapStateToProps = (state, props) => {
+  return {
+    status: state.modals.addSet
+  }
+}
+
+export default connect(mapStateToProps)(AddNewSet)
