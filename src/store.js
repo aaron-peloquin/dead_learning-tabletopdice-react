@@ -1,7 +1,8 @@
 import { combineReducers, createStore } from 'redux'
-import { setsReducer } from './storeReducers/'
+import { setsReducer, modalsReducer } from './storeReducers/'
 
 const reducers = combineReducers({
+  "modals": modalsReducer,
   "sets": setsReducer,
 })
 
