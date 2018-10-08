@@ -23,19 +23,11 @@ const style = theme => {
   }
 }
 
-const fakeData = [
-  {name: "Short Sword", primary: "1d20+5", secondary: "1d6+3", note: "A short sword"},
-  {name: "Spear", primary: "1d20+5", secondary: "1d6+3", note: "A wooden spear"},
-  {name: "Dagger", primary: "1d20+5", secondary: "1d4+3", note: "A sly dagger"},
-  {name: "Short Sword", primary: "1d20+5", secondary: "1d6+3", note: "A short sword"},
-  {name: "Spear", primary: "1d20+5", secondary: "1d6+3", note: "A wooden spear"},
-]
-
 let SetCards = (props) => {
   const { classes } = props;
   return <Fragment>
     <Grid container justify="center" className={classes.gridContainer} spacing={24}>
-      {props.sets.map(dataObj => <Grid item xs={12} sm={6} md={4} xl={3}>
+      {props.sets.map((key,dataObj) => <Grid key={key} item xs={12} sm={6} md={4} xl={3}>
         <Card>
         <CardContent>
           <Typography variant="headline">{dataObj.name}</Typography>
@@ -55,7 +47,8 @@ let SetCards = (props) => {
 
 const mapStateToProps = (state, props) => {
   return {
-    sets: state.sets
+    sets: state.sets,
+
   }
 }
 
