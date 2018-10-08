@@ -4,8 +4,8 @@ import {
   Modal,
   Paper,
 } from '@material-ui/core/'
-import AddIcon from '@material-ui/icons/Add';
 import toggleModal from './../storeDispatchers/toggleModal'
+import AddIcon from '@material-ui/icons/Add';
 import addSet from './../storeDispatchers/addSet'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
@@ -44,7 +44,7 @@ let AddNewSet = (props) => {
         <AddIcon />
       </Button>
     </div>
-    <Modal
+    {/* <Modal
       aria-labelledby="Create new dice set"
       aria-describedby="Use this form to create a new dice set card"
       open={props.status}
@@ -53,7 +53,7 @@ let AddNewSet = (props) => {
       <Paper className={classes.modalContent}>
         Test
       </Paper>
-    </Modal>
+    </Modal> */}
   </Fragment>
 }
 
