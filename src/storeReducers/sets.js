@@ -21,9 +21,9 @@ const defaultState = [
  */
 export default function(state=defaultState, { type, payload }) {
   let updateLocalStorage = false
-
   const storageSets = loadFromStorage('sets')
-  if(storageSets) {
+
+  if(storageSets.length>0) {
     state = storageSets
   }
 
@@ -34,7 +34,6 @@ export default function(state=defaultState, { type, payload }) {
     case "sets:addSet":
       updateLocalStorage = true
       state.push(payload)
-      console.log("New State:",state)
       break
   }
 
