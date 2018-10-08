@@ -18,10 +18,10 @@ let SetCards = (props) => {
   let i = 0
   return <Fragment>
     <Grid container justify="center" className={classes.gridContainer} spacing={24}>
-      {props.sets.map((setData) => {
+      {props.sets.map((setData, setId) => {
           i++
           return <Grid key={i} item xs={12} sm={6} md={4} xl={3}>
-            <SetCard setData={setData} />
+            <SetCard setData={setData} setId={setId} />
           </Grid>
         }
       )}
