@@ -1,9 +1,10 @@
+import rollsReducer from './rolls'
 import setsReducer from './sets'
 import togglesReducer from './toggles'
-import rollsReducer from './rolls'
-
+import setEditStatusReducer from './setEditStatus'
 export {
   setsReducer,
   togglesReducer,
-  rollsReducer
+  rollsReducer,
+  setEditStatusReducer
 }
