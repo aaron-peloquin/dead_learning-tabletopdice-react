@@ -31,15 +31,15 @@ let SetCard = props => {
   let contents = <Fragment />
   let edit = <Fragment />
   if(editStatus) {
-    edit = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="secondary">Edit</Button>
+    edit = `Save`
   }
   else {
-    edit = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="primary">Edit</Button>
+    edit = `Edit`
   }
 
   return <Card>
     <CardActions className={classes.editAction}>
-      {edit}
+      <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="secondary">{edit}</Button>
     </CardActions>
     <CardContent>
       <Typography variant="headline">{setData.name}</Typography>
@@ -58,6 +58,7 @@ const mapStateToProps = (state, props) => {
   console.log("SetCard[props].setId", props.setId)
   return {
     editStatus: !!state.setEditStatus[props.setId],
+    setData: state.sets[props.setId],
   }
 }
 
