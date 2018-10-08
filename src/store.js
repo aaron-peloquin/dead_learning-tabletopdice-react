@@ -6,12 +6,14 @@ import {
   setsReducer,
   togglesReducer,
   rollsReducer,
+  setEditStatusReducer,
 } from './storeReducers/'
 
 const reducers = combineReducers({
   "toggles": togglesReducer,
   "sets": setsReducer,
   "rolls": rollsReducer,
+  "setEditStatus": setEditStatusReducer,
 })
 
 /** Enable chrome extension to view redux data */

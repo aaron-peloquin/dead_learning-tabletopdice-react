@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {
   Card,
   CardActions,
@@ -8,15 +8,44 @@ import {
 } from '@material-ui/core/'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
+import Icon from '@material-ui/core/Icon';
+import toggleSetEditStatus from './../storeDispatchers/toggleSetEditStatus'
 
-const SetCard = props => {
-  const { setData, classes } = props
+const styles = theme => {
+  return {
+    editAction: {
+      position: "relative",
+      float: "right",
+    },
+    rollAction: {
+      display: "grid",
+      justifyContent: "right",
+    }
+  }
+}
+
+let SetCard = props => {
+  const { setId, editStatus, setData, classes } = props
+  console.log("props.editStatus", editStatus)
+
+  let contents = <Fragment />
+  let edit = <Fragment />
+  if(editStatus) {
+    edit = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="secondary">Edit</Button>
+  }
+  else {
+    edit = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="primary">Edit</Button>
+  }
+
   return <Card>
+    <CardActions className={classes.editAction}>
+      {edit}
+    </CardActions>
     <CardContent>
       <Typography variant="headline">{setData.name}</Typography>
       <Typography variant="subheading">{setData.note}</Typography>
     </CardContent>
-    <CardActions>
+    <CardActions className={classes.rollAction}>
       <Button
         variant="contained"
         color="secondary"
@@ -25,4 +54,12 @@ const SetCard = props => {
     </Card>
 }
 
-export default SetCard
+const mapStateToProps = (state, props) => {
+  console.log("SetCard[props].setId", props.setId)
+  return {
+    editStatus: !!state.setEditStatus[props.setId],
+  }
+}
+
+SetCard = withStyles(styles)(SetCard)
+export default connect(mapStateToProps)(SetCard)

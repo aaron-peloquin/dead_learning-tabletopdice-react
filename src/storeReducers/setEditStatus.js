@@ -1,5 +1,5 @@
 /**
- * Reducer for store.toggles
+ * Reducer for store.setEditStatus
  * @param {array} state An object of each toggle,
  * @param {str} type The type of action to take on this dataset
  * @param {str} paypload The data to update this state with
