@@ -11,9 +11,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const recentRollResults = (rolls, limit=3) => {
   const displayRolls = rolls.reverse().splice(0,limit)
+  let i = 0
   return <Fragment>
     {displayRolls.map((r)=>{
-      return <Fragment><strong>{r.result} rolled </strong> ({r.sides} sides) </Fragment>
+      i++
+      return <span key={i}>
+          <strong>{r.result} rolled </strong>
+          <span>({r.sides} sides)</span>
+        </span>
     })}
   </Fragment>
 }
