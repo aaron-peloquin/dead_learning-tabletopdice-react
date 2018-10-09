@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import {
   Button,
 } from '@material-ui/core/'
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Add'
 import addSet from './../storeDispatchers/addSet'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 
 const style = theme => {
   return {
@@ -18,7 +18,7 @@ const style = theme => {
 }
 
 let AddNewSet = (props) => {
-  const { classes, activlyEditing } = props;
+  const { classes, activlyEditing } = props
   if(activlyEditing) {
     return <Fragment />
   }
