@@ -7,8 +7,11 @@ import SetCard from './SetCard'
 const style = theme => {
   return {
     gridContainer: {
-      margin: "0 auto",
-      maxWidth: "90%",
+      width: '95%',
+      margin: 0,
+      paddingTop: theme.spacing.unit * 4,
+      paddingLeft: theme.spacing.unit * 2,
+      paddingRight: theme.spacing.unit * 8,
     }
   }
 }
