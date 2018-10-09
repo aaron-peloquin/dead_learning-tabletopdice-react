@@ -7,25 +7,32 @@
 
 const defaultState = []
 
+function disableAll(state) {
+  let active = state.indexOf(true)
+  if(active > -1) {
+    state[active] = false
+  }
+  return state
+}
+
 const setEditStatusReducer = (state=defaultState, { type, payload }) => {
   switch (type) {
     default:
       /** Do nothing */
       break
+    case "setEditStatus:disableAll":
+      state = disableAll(state)
+      break
     case "setEditStatus:toggle":
       let currentState = state[payload]
       /** If this set is currently true, set it to false */
       if(currentState) {
-        state[payload] = !state[payload]
+        state[payload] = false
       }
       else {
         /** Attempt to find an active set */
-        let activeEdit = state.indexOf(true)
-        if(activeEdit>-1) {
-          /** If we have an active set, deactivate it */
-          state[activeEdit] = false
-        }
-        /** Toggle this set to be true */
+        state = disableAll(state)
+        /** Set this set to be true */
         state[payload] = true
       }
       break
