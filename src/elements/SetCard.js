@@ -28,29 +28,28 @@ let SetCard = props => {
   const { setId, editStatus, setData, classes } = props
   console.log("props.editStatus", editStatus)
 
-  let contents = <Fragment />
-  let edit = <Fragment />
+  let contents, editIcon, rollButton
   if(editStatus) {
-    edit = `Save`
+    editIcon = <Icon>save_icon</Icon>
+    contents = <form>Edit Form</form>
   }
   else {
-    edit = `Edit`
+    editIcon = <Icon>edit_icon</Icon>
+    contents = <Fragment>
+      <Typography variant="headline">{setData.name}</Typography>
+      <Typography variant="subheading">{setData.note}</Typography>
+    </Fragment>
+    if(setData.primary!='' || setData.secondary!='') {
+      rollButton = <Button variant="contained" color="secondary">Roll</Button>
+    }
   }
 
   return <Card>
     <CardActions className={classes.editAction}>
-      <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="contained" color="secondary">{edit}</Button>
+      <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="primary">{editIcon}</Button>
     </CardActions>
-    <CardContent>
-      <Typography variant="headline">{setData.name}</Typography>
-      <Typography variant="subheading">{setData.note}</Typography>
-    </CardContent>
-    <CardActions className={classes.rollAction}>
-      <Button
-        variant="contained"
-        color="secondary"
-      >Roll</Button>
-    </CardActions>
+    <CardContent>{contents}</CardContent>
+    <CardActions className={classes.rollAction}>{rollButton}</CardActions>
     </Card>
 }
 
