@@ -1,4 +1,5 @@
 import store from '../store'
+import toggleSetEditStatus from './toggleSetEditStatus'
 
 const toggleModal = (key) => {
   store.dispatch({
@@ -11,7 +12,7 @@ const toggleModal = (key) => {
     }
   })
   const id = store.getState().sets.length - 1
-  console.log("id:", id)
+  toggleSetEditStatus(id)
 }
 
 export default toggleModal
