@@ -35,6 +35,10 @@ export default function(state=defaultState, { type, payload }) {
       updateLocalStorage = true
       state.push(payload)
       break
+    case "sets:update":
+      updateLocalStorage = true
+      state[payload.id][payload.key] = payload.value
+      break
   }
 
   /** Attempt to pass new state to localStorage as a JSON object */
