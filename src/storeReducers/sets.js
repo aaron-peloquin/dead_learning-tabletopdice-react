@@ -26,6 +26,10 @@ export default function(state=defaultState, { type, payload }) {
   if(storageSets.length>0) {
     state = storageSets
   }
+  else {
+    /** Initilize localStorage with the defaultState */
+    updateLocalStorage = true
+  }
 
   switch (type) {
     default:
