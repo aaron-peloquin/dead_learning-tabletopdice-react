@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react'
 import {
   Button,
-  Modal,
-  Paper,
 } from '@material-ui/core/'
-import toggleModal from './../storeDispatchers/toggleModal'
 import AddIcon from '@material-ui/icons/Add';
 import addSet from './../storeDispatchers/addSet'
 import { connect } from 'react-redux'
