@@ -24,6 +24,9 @@ const styles = theme => {
       display: "grid",
       justifyContent: "right",
     },
+    delete: {
+      marginTop: "15px",
+    }
   }
 }
 
@@ -42,7 +45,7 @@ let SetCard = props => {
   if(editStatus) {
     // let editData = Object.assign(setData)
     editIcon = <Icon>save_icon</Icon>
-    remove = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="secondary"><Icon>delete_icon</Icon></Button>
+    remove = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="secondary" className={classes.delete}><Icon>delete_icon</Icon></Button>
     contents = <div>
       <TextField onChange={update.name} defaultValue={setData.name} placeholder="Label" />
       <TextField onChange={update.note} defaultValue={setData.note} placeholder="Note" multiline />
