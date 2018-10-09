@@ -18,17 +18,19 @@ const styles = theme => {
     editAction: {
       position: "relative",
       float: "right",
+      flexDirection: "column",
     },
     rollAction: {
       display: "grid",
       justifyContent: "right",
-    }
+    },
   }
 }
 
 let SetCard = props => {
   let { setId, editStatus, setData, classes } = props
 
+  /** Create internal update methods for each key of setData */
   const update = {
     name: (e)=>{updateSet({id:setId, key:"name", newValue:e.target.value})},
     note: (e)=>{updateSet({id:setId, key:"note", newValue:e.target.value})},
@@ -36,10 +38,11 @@ let SetCard = props => {
     secondary: (e)=>{updateSet({id:setId, key:"secondary", newValue:e.target.value})},
   }
 
-  let contents, editIcon, rollButton
+  let contents, editIcon, remove, rollButton
   if(editStatus) {
     // let editData = Object.assign(setData)
     editIcon = <Icon>save_icon</Icon>
+    remove = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="secondary"><Icon>delete_icon</Icon></Button>
     contents = <div>
       <TextField onChange={update.name} defaultValue={setData.name} placeholder="Label" />
       <TextField onChange={update.note} defaultValue={setData.note} placeholder="Note" multiline />
@@ -61,6 +64,7 @@ let SetCard = props => {
   return <Card>
     <CardActions className={classes.editAction}>
       <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="primary">{editIcon}</Button>
+      {remove}
     </CardActions>
     <CardContent>{contents}</CardContent>
     <CardActions className={classes.rollAction}>{rollButton}</CardActions>
