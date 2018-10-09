@@ -29,7 +29,10 @@ const style = theme => {
 }
 
 let AddNewSet = (props) => {
-  const { classes } = props;
+  const { classes, activlyEditing } = props;
+  if(activlyEditing) {
+    return <Fragment />
+  }
   return <Fragment>
     <div className={classes.fabWrapper}>
       <Button
@@ -55,8 +58,16 @@ let AddNewSet = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
+  const { setEditStatus = [] } = state
+  let editing = false
+  if(setEditStatus.length>0){
+    editing = setEditStatus.some((val)=>{
+      return val===true
+    })
+  }
+
   return {
-    status: false
+    activlyEditing: editing
   }
 }
 
