@@ -13,7 +13,21 @@ const setEditStatusReducer = (state=defaultState, { type, payload }) => {
       /** Do nothing */
       break
     case "setEditStatus:toggle":
-      state[payload] = !state[payload]
+      let currentState = state[payload]
+      /** If this set is currently true, set it to false */
+      if(currentState) {
+        state[payload] = !state[payload]
+      }
+      else {
+        /** Attempt to find an active set */
+        let activeEdit = state.indexOf(true)
+        if(activeEdit>-1) {
+          /** If we have an active set, deactivate it */
+          state[activeEdit] = false
+        }
+        /** Toggle this set to be true */
+        state[payload] = true
+      }
       break
   }
   return state  
