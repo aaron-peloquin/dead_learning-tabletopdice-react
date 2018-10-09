@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core/'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
-import Icon from '@material-ui/core/Icon';
+import Icon from '@material-ui/core/Icon'
 import toggleSetEditStatus from './../storeDispatchers/toggleSetEditStatus'
 import updateSet from './../storeDispatchers/updateSet'
 
