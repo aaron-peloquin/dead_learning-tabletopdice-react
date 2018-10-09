@@ -1,15 +1,17 @@
 import React, {Fragment} from 'react'
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
+  TextField,
   Typography,
-  Button,
 } from '@material-ui/core/'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import Icon from '@material-ui/core/Icon';
 import toggleSetEditStatus from './../storeDispatchers/toggleSetEditStatus'
+import updateSet from './../storeDispatchers/updateSet'
 
 const styles = theme => {
   return {
@@ -25,13 +27,25 @@ const styles = theme => {
 }
 
 let SetCard = props => {
-  const { setId, editStatus, setData, classes } = props
-  console.log("props.editStatus", editStatus)
+  let { setId, editStatus, setData, classes } = props
+
+  const update = {
+    name: (e)=>{updateSet({id:setId, key:"name", newValue:e.target.value})},
+    note: (e)=>{updateSet({id:setId, key:"note", newValue:e.target.value})},
+    primary: (e)=>{updateSet({id:setId, key:"primary", newValue:e.target.value})},
+    secondary: (e)=>{updateSet({id:setId, key:"secondary", newValue:e.target.value})},
+  }
 
   let contents, editIcon, rollButton
   if(editStatus) {
+    // let editData = Object.assign(setData)
     editIcon = <Icon>save_icon</Icon>
-    contents = <form>Edit Form</form>
+    contents = <div>
+      <TextField onChange={update.name} defaultValue={setData.name} placeholder="Label" />
+      <TextField onChange={update.note} defaultValue={setData.note} placeholder="Note" multiline />
+      <TextField onChange={update.primary} defaultValue={setData.primary} placeholder="1d20+5" />
+      <TextField onChange={update.secondary} defaultValue={setData.secondary} placeholder="1d8+4" />
+    </div>
   }
   else {
     editIcon = <Icon>edit_icon</Icon>
@@ -39,7 +53,7 @@ let SetCard = props => {
       <Typography variant="headline">{setData.name}</Typography>
       <Typography variant="subheading">{setData.note}</Typography>
     </Fragment>
-    if(setData.primary!='' || setData.secondary!='') {
+    if(setData.primary!=='' || setData.secondary!=='') {
       rollButton = <Button variant="contained" color="secondary">Roll</Button>
     }
   }
@@ -54,7 +68,6 @@ let SetCard = props => {
 }
 
 const mapStateToProps = (state, props) => {
-  console.log("SetCard[props].setId", props.setId)
   return {
     editStatus: !!state.setEditStatus[props.setId],
     setData: state.sets[props.setId],
