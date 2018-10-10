@@ -2,7 +2,7 @@
  * Reducer for store.setEditStatus
  * @param {array} state An object of each toggle,
  * @param {str} type The type of action to take on this dataset
- * @param {str} paypload The data to update this state with
+ * @param {str} payload The data to update this state with
  */
 
 const defaultState = []
@@ -22,6 +22,10 @@ const setEditStatusReducer = (state=defaultState, { type, payload }) => {
       break
     case "setEditStatus:disableAll":
       state = disableAll(state)
+      break
+    /** Unessesary state cleanup */
+    case "sets:deleteSet":
+      state.splice(payload,1)
       break
     case "setEditStatus:toggle":
       let currentState = state[payload]

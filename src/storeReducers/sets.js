@@ -17,7 +17,7 @@ const defaultState = [
  * Attempts to pull state out of localStorage
  * @param {array} state An array of objects
  * @param {str} type The type of action to take on this dataset
- * @param {str} paypload The data to update this state with
+ * @param {str} payload The data to update this state with
  */
 export default function(state=defaultState, { type, payload }) {
   let updateLocalStorage = false
@@ -43,6 +43,10 @@ export default function(state=defaultState, { type, payload }) {
         primary: "",
         secondary: "",
       })
+      break
+    case "sets:deleteSet":
+      updateLocalStorage = true
+      state.splice(payload,1)
       break
     case "sets:update":
       updateLocalStorage = true
