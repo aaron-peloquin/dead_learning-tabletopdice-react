@@ -32,7 +32,6 @@ const styles = theme => {
 let SetCard = props => {
   let { setId, editStatus, setData, classes } = props
   setData = Object.assign(setData)
-  console.log("Card: setId: ",setId)
 
   const update = {
     name: (e)=>{setData.name=e.target.value},
@@ -82,6 +81,7 @@ const mapStateToProps = (state, props) => {
   return {
     editStatus: !!state.setEditStatus[index],
     setData: state.sets[index],
+    setId: index
   }
 }
 
