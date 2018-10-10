@@ -1,9 +1,7 @@
 import React, {Fragment} from 'react'
 import {
   Button,
-  Card,
-  CardActions,
-  CardContent,
+  Card, CardActions, CardContent,
   TextField,
   Typography,
 } from '@material-ui/core/'
@@ -12,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Icon from '@material-ui/core/Icon'
 import toggleSetEditStatus from './../storeDispatchers/toggleSetEditStatus'
 import updateSet from './../storeDispatchers/updateSet'
+import deleteSet from './../storeDispatchers/deleteSet'
 
 const styles = theme => {
   return {
@@ -45,7 +44,7 @@ let SetCard = props => {
   if(editStatus) {
     // let editData = Object.assign(setData)
     editIcon = <Icon>save_icon</Icon>
-    remove = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="secondary" className={classes.delete}><Icon>delete_icon</Icon></Button>
+    remove = <Button onClick={()=>{deleteSet(setId)}} variant="fab" color="secondary" className={classes.delete}><Icon>delete_icon</Icon></Button>
     contents = <div>
       <TextField onChange={update.name} defaultValue={setData.name} placeholder="Label" />
       <TextField onChange={update.note} defaultValue={setData.note} placeholder="Note" multiline />
