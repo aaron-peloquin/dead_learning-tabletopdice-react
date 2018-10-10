@@ -31,19 +31,23 @@ const styles = theme => {
 
 let SetCard = props => {
   let { setId, editStatus, setData, classes } = props
+  setData = Object.assign(setData)
+  console.log("Card: setId: ",setId)
 
-  /** Create internal update methods for each key of setData */
   const update = {
-    name: (e)=>{updateSet({id:setId, key:"name", newValue:e.target.value})},
-    note: (e)=>{updateSet({id:setId, key:"note", newValue:e.target.value})},
-    primary: (e)=>{updateSet({id:setId, key:"primary", newValue:e.target.value})},
-    secondary: (e)=>{updateSet({id:setId, key:"secondary", newValue:e.target.value})},
+    name: (e)=>{setData.name=e.target.value},
+    note: (e)=>{setData.note=e.target.value},
+    primary: (e)=>{setData.primary=e.target.value},
+    secondary: (e)=>{setData.secondary=e.target.value},
   }
 
-  let contents, editIcon, remove, rollButton
+  let contents, editButton, remove, rollButton
   if(editStatus) {
     // let editData = Object.assign(setData)
-    editIcon = <Icon>save_icon</Icon>
+    editButton = <Button onClick={()=>{
+      updateSet({id:setId, data:setData})
+      toggleSetEditStatus(setId)
+    }} variant="fab" color="primary"><Icon>save_icon</Icon></Button>
     remove = <Button onClick={()=>{deleteSet(setId)}} variant="fab" color="secondary" className={classes.delete}><Icon>delete_icon</Icon></Button>
     contents = <div>
       <TextField onChange={update.name} defaultValue={setData.name} placeholder="Label" />
@@ -53,7 +57,7 @@ let SetCard = props => {
     </div>
   }
   else {
-    editIcon = <Icon>edit_icon</Icon>
+    editButton = <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="primary"><Icon>edit_icon</Icon></Button>
     contents = <Fragment>
       <Typography variant="headline">{setData.name}</Typography>
       <Typography variant="subheading">{setData.note}</Typography>
@@ -65,7 +69,7 @@ let SetCard = props => {
 
   return <Card>
     <CardActions className={classes.editAction}>
-      <Button onClick={()=>{toggleSetEditStatus(setId)}} variant="fab" color="primary">{editIcon}</Button>
+      {editButton}
       {remove}
     </CardActions>
     <CardContent>{contents}</CardContent>
@@ -74,9 +78,10 @@ let SetCard = props => {
 }
 
 const mapStateToProps = (state, props) => {
+  const index = state.sets.indexOf(props.setData)
   return {
-    editStatus: !!state.setEditStatus[props.setId],
-    setData: state.sets[props.setId],
+    editStatus: !!state.setEditStatus[index],
+    setData: state.sets[index],
   }
 }
 
