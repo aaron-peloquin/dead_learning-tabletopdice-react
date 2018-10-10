@@ -18,13 +18,16 @@ const style = theme => {
 
 let SetCards = (props) => {
   const { classes } = props
+  const sets = props.sets.slice()
   let i = 0
   return <Fragment>
     <Grid container justify="center" className={classes.gridContainer} spacing={24}>
-      {props.sets.map((setData, setId) => {
+      {sets.sort((a,b)=>{
+        return a.name>b.name
+      }).map((setData) => {
           i++
           return <Grid key={i} item xs={12} sm={6} md={4} xl={3}>
-            <SetCard setData={setData} setId={setId} />
+            <SetCard setData={setData} />
           </Grid>
         }
       )}

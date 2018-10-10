@@ -38,7 +38,7 @@ export default function(state=defaultState, { type, payload }) {
     case "sets:addSet":
       updateLocalStorage = true
       state.push({
-        name: "",
+        name: "New Set",
         note: "",
         primary: "",
         secondary: "",
