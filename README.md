@@ -11,3 +11,5 @@ Decided to start learning:
 3) Run `yarn`
 4) Run `yarn start`
 
+## Summary
+I am feeling confident enough now with these libraries to start fresh with a new UX and features.
