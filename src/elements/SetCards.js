@@ -24,7 +24,7 @@ let SetCards = (props) => {
       {props.sets.map((setData, setId) => {
           i++
           return <Grid key={i} item xs={12} sm={6} md={4} xl={3}>
-            <SetCard setId={setId} />
+            <SetCard setData={setData} setId={setId} />
           </Grid>
         }
       )}

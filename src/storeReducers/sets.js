@@ -50,7 +50,12 @@ export default function(state=defaultState, { type, payload }) {
       break
     case "sets:update":
       updateLocalStorage = true
-      state[payload.id][payload.key] = payload.value
+      console.log("state 1-0",state[0])
+      console.log("state 1-1",state[1])
+      console.log("Updating..",payload)
+      state[payload.id] = payload.data
+      console.log("state 2-0",state[0])
+      console.log("state 2-1",state[1])
       break
   }
 
