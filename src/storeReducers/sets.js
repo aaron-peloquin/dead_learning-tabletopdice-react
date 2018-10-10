@@ -37,7 +37,12 @@ export default function(state=defaultState, { type, payload }) {
       break
     case "sets:addSet":
       updateLocalStorage = true
-      state.push(payload)
+      state.push({
+        name: "",
+        note: "",
+        primary: "",
+        secondary: "",
+      })
       break
     case "sets:update":
       updateLocalStorage = true
