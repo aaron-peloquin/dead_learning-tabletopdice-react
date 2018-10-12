@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>https://tabletopdice.com/</loc>
+    <lastmod>2018-09-02</lastmod>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://tabletopdice.com/about/</loc>
+    <lastmod>2018-09-02</lastmod>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://tabletopdice.com/quick-dice-roller/</loc>
+    <lastmod>2018-08-24</lastmod>
+    <priority>.5</priority>
+  </url>
+
+  <url>
+    <loc>https://tabletopdice.com/basic-dice-roller/</loc>
+    <lastmod>2018-08-24</lastmod>
+    <priority>.25</priority>
+  </url>
+
+
+  <url>
+    <loc>https://tabletopdice.com/advanced-dice-roller/</loc>
+    <lastmod>2018-08-28</lastmod>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://tabletopdice.com/combat-dice-roller/</loc>
+    <lastmod>2018-09-01</lastmod>
+    <priority>1</priority>
+  </url>
+
+
+</urlset>
